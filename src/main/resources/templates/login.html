@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="border p-4 rounded-3">
+        <h2 class="mb-4 text-center">Formulario de Login</h2>
+        <form action="/login" method="post" th:object="${usuario}">
+            <div class="mb-3">
+                <label for="nombreUsuario" class="form-label">Usuario:</label>
+                <input type="text" class="form-control" id="nombreUsuario" th:field="*{nombreUsuario}" required />
+            </div>
+            <div class="mb-3">
+                <label for="contrasena" class="form-label">Contraseña:</label>
+                <input type="password" class="form-control" id="contrasena" th:field="*{contrasena}" required />
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+            </div>
+            <div th:if="${error}" class="alert alert-danger mt-3" role="alert">
+                <span th:text="${error}"></span>
+            </div>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
